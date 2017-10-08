@@ -1,24 +1,29 @@
-/*
-que possua um saldo os métodos para pegar saldo, depositar e sacar
- */
 package contabancaria;
 
-public class Conta {
+public abstract class Conta{
     
-    private float saldo;
-
+    protected float saldo = 200;
+    protected float taxa;
+   
     public float getSaldo() {
         return saldo;
     }
     public void setSaldo(float saldo) {
         this.saldo = saldo;
     }
-    public void depositar(){
-        
+    public void depositar(float deposito){
+        this.saldo += deposito;
     }
-    public void sacar(){
-
-    }    
-    
-    
+    public void sacar(float saque){
+        this.saldo -= saque;
+    }
+    public void setTaxa(float taxa){
+        this.taxa = taxa;
+    }
+    public float getTaxa(){
+        return taxa;
+    }
+    public float atualizaConta(){
+        return this.saldo = saldo + (saldo * (taxa/100));
+    }
 }
